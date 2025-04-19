@@ -1,0 +1,37 @@
+.button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+.button.primary {
+  background: #6e8efb;
+  color: white;
+}
+
+.button.primary:hover {
+  background: #5a7df4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(110, 142, 251, 0.3);
+}
+
+.button.secondary {
+  background: white;
+  color: #6e8efb;
+  border: 2px solid #6e8efb;
+}
+
+.button.secondary:hover {
+  background: #f8f9fa;
+  transform: translateY(-2px);
+}
+
+.button.full-width {
+  width: 100%;
+}
