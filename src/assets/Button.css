@@ -21,17 +21,25 @@
   box-shadow: 0 4px 12px rgba(110, 142, 251, 0.3);
 }
 
-.button.secondary {
-  background: white;
-  color: #6e8efb;
-  border: 2px solid #6e8efb;
+/* Estilo para los botones secundarios (rojos) */
+button.is-secondary {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.button.secondary:hover {
-  background: #f8f9fa;
-  transform: translateY(-2px);
+button.is-secondary:hover {
+  background-color: darkred;
 }
+
+
 
 .button.full-width {
   width: 100%;
 }
+
+

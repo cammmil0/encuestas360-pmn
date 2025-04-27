@@ -1,0 +1,22 @@
+export const clients = [
+    { id: 1, name: 'María González', email: 'maria@ejemplo.com', surveysCompleted: 5, lastActivity: '2025-05-15' },
+    { id: 2, name: 'Carlos Ruiz', email: 'carlos@empresa.com', surveysCompleted: 3, lastActivity: '2025-05-10' },
+    { id: 3, name: 'Ana Fernández', email: 'ana@correo.com', surveysCompleted: 7, lastActivity: '2025-05-18' },
+    { id: 4, name: 'Jorge Martínez', email: 'jorge@mail.com', surveysCompleted: 2, lastActivity: '2025-04-28' },
+    { id: 5, name: 'Lucía Díaz', email: 'lucia@dominio.com', surveysCompleted: 4, lastActivity: '2025-05-12' },
+    { id: 6, name: 'Pedro Sánchez', email: 'pedro@correo.com', surveysCompleted: 6, lastActivity: '2025-05-17' },
+    { id: 7, name: 'Sofía Herrera', email: 'sofia@mail.com', surveysCompleted: 1, lastActivity: '2025-04-30' },
+    { id: 8, name: 'Diego Castro', email: 'diego@empresa.com', surveysCompleted: 8, lastActivity: '2025-05-20' },
+    { id: 9, name: 'Elena Vargas', email: 'elena@ejemplo.com', surveysCompleted: 3, lastActivity: '2025-05-08' },
+    { id: 10, name: 'Andrés Navarro', email: 'andres@dominio.com', surveysCompleted: 5, lastActivity: '2025-05-14' },
+    { id: 11, name: 'Isabel Ríos', email: 'isabel@correo.com', surveysCompleted: 2, lastActivity: '2025-05-05' },
+    { id: 12, name: 'Fernando Mora', email: 'fernando@mail.com', surveysCompleted: 4, lastActivity: '2025-05-11' },
+    { id: 13, name: 'Carmen Luna', email: 'carmen@ejemplo.com', surveysCompleted: 6, lastActivity: '2025-05-16' },
+    { id: 14, name: 'Javier Cordero', email: 'javier@empresa.com', surveysCompleted: 3, lastActivity: '2025-05-09' },
+    { id: 15, name: 'Patricia León', email: 'patricia@dominio.com', surveysCompleted: 7, lastActivity: '2025-05-19' },
+    { id: 16, name: 'Ricardo Mendoza', email: 'ricardo@correo.com', surveysCompleted: 1, lastActivity: '2025-05-01' },
+    { id: 17, name: 'Adriana Solís', email: 'adriana@mail.com', surveysCompleted: 5, lastActivity: '2025-05-13' },
+    { id: 18, name: 'Óscar Campos', email: 'oscar@ejemplo.com', surveysCompleted: 2, lastActivity: '2025-05-06' },
+    { id: 19, name: 'Gabriela Chaves', email: 'gabriela@empresa.com', surveysCompleted: 4, lastActivity: '2025-05-12' },
+    { id: 20, name: 'Raúl Jiménez', email: 'raul@dominio.com', surveysCompleted: 6, lastActivity: '2025-05-17' }
+  ];

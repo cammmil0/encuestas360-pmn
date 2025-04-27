@@ -1,0 +1,118 @@
+/* Estructura principal */
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8fafc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Sidebar */
+  .admin-sidebar {
+    width: 250px;
+    background-color: #4f46e5;
+    padding: 20px;
+    color: white;
+    position: fixed;
+    height: 100vh;
+    display: flex; /* <- nuevo */
+    flex-direction: column; /* <- nuevo */
+  }
+  
+  .admin-sidebar h2 {
+    color: white;
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .admin-sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+  }
+  
+  .admin-sidebar nav li {
+    margin-bottom: 15px;
+  }
+  
+  /* Estilos para botones del sidebar */
+  .sidebar-button {
+    width: 100%;
+    text-align: left;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+  }
+  
+  .sidebar-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .sidebar-button.active {
+    background: rgba(255, 255, 255, 0.3);
+    font-weight: 500;
+  }
+  
+  /* Botón de cerrar sesión */
+  .logout-button {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ef4444; /* Rojo */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+  }
+  
+  .logout-button:hover {
+    background-color: #dc2626; /* Rojo más oscuro */
+  }
+  
+  /* Contenido principal */
+  .admin-content {
+    flex: 1;
+    padding: 30px;
+    margin-left: 250px;
+    min-height: 100vh;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .admin-sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+      flex-direction: row; /* <- en móviles, acomodar horizontalmente si quieres */
+      align-items: center;
+      justify-content: space-between;
+    }
+  
+    .admin-content {
+      margin-left: 0;
+      padding: 20px;
+    }
+  
+    .admin-sidebar nav ul {
+      display: flex;
+      flex-direction: row;
+      margin: 0;
+    }
+  
+    .admin-sidebar nav li {
+      margin: 0 10px;
+    }
+  
+    .logout-button {
+      margin-top: 0; /* <- quitar el auto porque ahora es fila */
+      margin-left: auto;
+    }
+  }
+  

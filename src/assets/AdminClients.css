@@ -1,0 +1,218 @@
+/* src/assets/AdminClients.css */
+
+/* Estructura principal */
+.admin-clients-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8fafc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-page-content{
+  margin-left: 20px;
+}
+/* Sidebar (consistente con Dashboard) */
+.sidebar {
+  width: 280px;
+  background-color: #4f46e5;
+  padding: 25px;
+  color: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  height: 100vh;
+}
+
+.sidebar h2 {
+  color: white;
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+}
+
+.sidebar nav li {
+  margin-bottom: 15px;
+}
+
+/* Área de contenido principal */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  margin-left: 280px; /* Igual al ancho del sidebar */
+  max-width: calc(100% - 280px);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.header h1 {
+  color: #1e293b;
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+/* Tabla de clientes */
+.clients-table {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+/* Cabecera de la tabla */
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr;
+  background-color: #4f46e5;
+  color: white;
+  padding: 15px 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Filas de clientes */
+.client-row {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr;
+  padding: 15px 25px;
+  align-items: center;
+  border-bottom: 1px solid #f1f5f9;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.client-row:hover {
+  background-color: #f8fafc;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.client-row:last-child {
+  border-bottom: none;
+}
+
+/* Estilos para el texto */
+.client-row span {
+  color: #334155;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+/* Badge de encuestas */
+.surveys-badge {
+  background-color: #e0e7ff;
+  color: #4f46e5;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: inline-block;
+  text-align: center;
+  min-width: 24px;
+}
+
+/* Fecha */
+.client-row span:nth-child(4) {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* Scrollbar personalizada */
+.clients-table::-webkit-scrollbar {
+  width: 8px;
+}
+
+.clients-table::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 0 10px 10px 0;
+}
+
+.clients-table::-webkit-scrollbar-thumb {
+  background: #c7d2fe;
+  border-radius: 4px;
+}
+
+.clients-table::-webkit-scrollbar-thumb:hover {
+  background: #a5b4fc;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 220px;
+    padding: 20px;
+  }
+  
+  .main-content {
+    margin-left: 220px;
+    max-width: calc(100% - 220px);
+    padding: 20px;
+  }
+  
+  .client-row,
+  .table-header {
+    grid-template-columns: 1.5fr 1.5fr 1fr 1fr;
+    padding: 12px 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-clients-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    position: relative;
+    height: auto;
+    padding: 15px;
+  }
+  
+  .main-content {
+    margin-left: 0;
+    max-width: 100%;
+    padding: 15px;
+  }
+  
+  .table-header {
+    display: none;
+  }
+  
+  .client-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 15px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .client-row span {
+    white-space: normal;
+  }
+  
+  .client-row span::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #64748b;
+    margin-right: 8px;
+    font-size: 0.85rem;
+  }
+}

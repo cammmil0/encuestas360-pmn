@@ -13,9 +13,9 @@ function Login() {
     e.preventDefault();
     // Simula redirección por rol (sin backend)
     if (isAdmin) {
-      navigate('/dashboard'); // Ruta para admin
+      navigate('/admin/dashboard'); // Ruta para admin
     } else {
-      navigate('/encuestas') // Ruta para cliente
+      navigate('/user/encuestas') // Ruta para cliente
     }
   };
 
