@@ -1,3 +1,4 @@
+/* Estilos base (tus estilos existentes) */
 .login-container {
   display: flex;
   justify-content: center;
@@ -62,35 +63,78 @@
   border-color: #6e8efb;
 }
 
-/* Estilos previos (login-container, login-card, etc.) + añade estos: */
+.input-group input:disabled {
+  background-color: #f9f9f9;
+  cursor: not-allowed;
+}
 
+/* Toggle Admin/Cliente */
 .role-toggle {
-    display: flex;
-    margin: 1rem 0 2rem;
-    border-radius: 8px;
-    overflow: hidden;
-    background: #f1f1f1;
-    border: 1px solid #e0e0e0;
-  }
-  
-  .toggle-option {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    font-weight: 600;
-    color: #7f8c8d;
-    transition: all 0.3s;
-  }
-  
-  .toggle-option.active {
-    background: #6e8efb;
-    color: white;
-  }
-  
-  /* Ajustes para el placeholder de los inputs */
-  .input-group input::placeholder {
-    color: #aaa;
-    font-size: 0.9rem;
-  }
+  display: flex;
+  margin: 1rem 0 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f1f1f1;
+  border: 1px solid #e0e0e0;
+}
+
+.toggle-option {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+  color: #7f8c8d;
+  transition: all 0.3s;
+}
+
+.toggle-option.active {
+  background: #6e8efb;
+  color: white;
+}
+
+.toggle-option:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Mensajes */
+.login-message {
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.login-message.success {
+  background-color: #e6ffed;
+  color: #2d7735;
+  border: 1px solid #a3e9b4;
+}
+
+.login-message.error {
+  background-color: #fff0f0;
+  color: #d32f2f;
+  border: 1px solid #ffcdd2;
+}
+
+/* Sección de registro */
+.register-section {
+  margin-top: 20px;
+  text-align: center;
+  padding-top: 15px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.register-text {
+  color: #64748b;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+/* Placeholders */
+.input-group input::placeholder {
+  color: #aaa;
+  font-size: 0.9rem;
+}

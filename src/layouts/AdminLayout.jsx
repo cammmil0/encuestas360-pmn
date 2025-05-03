@@ -1,12 +1,46 @@
 import { Outlet, useNavigate, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { auth } from "../firebase/config";
+import { onAuthStateChanged } from "firebase/auth";
 import "../layouts/AdminLayout.css";
 
 const AdminLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleLogout = () => {
-    navigate("/");
+  // Verificar autenticación al montar el componente
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        // Si no hay usuario autenticado, redirigir al login
+        navigate("/", { 
+          state: { 
+            from: location.pathname,
+            message: "Sesión expirada" 
+          },
+          replace: true // Evita que pueda volver atrás
+        });
+      }
+    });
+
+    return () => unsubscribe();
+  }, [navigate, location.pathname]);
+
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+      // Redirigir al login con replace: true para evitar navegación atrás
+      navigate("/", { 
+        state: { message: "Sesión cerrada correctamente" },
+        replace: true 
+      });
+    } catch (error) {
+      console.error("Error al cerrar sesión:", error);
+      navigate("/", { 
+        state: { error: "Error al cerrar sesión" },
+        replace: true
+      });
+    }
   };
 
   const isActive = (path) => location.pathname.includes(path);

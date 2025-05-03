@@ -1,0 +1,60 @@
+/* src/assets/Unauthorized.css */
+.unauthorized-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .unauthorized-container h1 {
+    color: #dc2626; /* Rojo para indicar error */
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+  
+  .unauthorized-container p {
+    color: #4b5563; /* Gris oscuro */
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .role-info {
+    background: #f3f4f6; /* Fondo gris claro */
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    text-align: left;
+  }
+  
+  .role-info p {
+    margin: 0.5rem 0;
+    color: #1f2937; /* Gris más oscuro */
+    font-size: 0.95rem;
+  }
+  
+  .role-info strong {
+    color: #111827; /* Casi negro */
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 640px) {
+    .unauthorized-container {
+      margin: 1rem;
+      padding: 1.5rem;
+    }
+    
+    .action-buttons {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+  }

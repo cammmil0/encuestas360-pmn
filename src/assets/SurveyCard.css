@@ -1,86 +1,217 @@
+/* Estilos base */
 .survey-card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s, box-shadow 0.3s;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Estados */
+.survey-card.available {
+  border-top: 3px solid #4CAF50; /* Verde para disponibles */
+}
+
+.survey-card.completed {
+  border-top: 3px solid #9E9E9E; /* Gris para completadas */
+  opacity: 0.9;
+}
+
+/* Header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: #f8f9fa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.survey-category {
+  background: #E3F2FD;
+  color: #1976D2;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.survey-status {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+}
+
+.survey-card.available .survey-status {
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+
+.survey-card.completed .survey-status {
+  background: #EEEEEE;
+  color: #616161;
+}
+
+/* Body */
+.card-body {
+  padding: 1.25rem;
+  flex-grow: 1;
+}
+
+.card-body h3 {
+  color: #2c3e50;
+  margin: 0 0 0.75rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.survey-description {
+  color: #7f8c8d;
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.survey-responses {
+  margin-top: 1rem;
+  color: #7E57C2;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Footer */
+.card-footer {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.survey-action-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  background: #4CAF50;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.survey-action-btn:hover:not(:disabled) {
+  background: #3d8b40;
+  transform: translateY(-1px);
+}
+
+.survey-action-btn:disabled {
+  background: #BDBDBD;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-header, .card-body, .card-footer {
+    padding: 1rem;
   }
-  
-  .survey-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-  }
-  
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 1.5rem;
-    background: #f8f9fa;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .category-badge {
-    background: #e3f2fd;
-    color: #1976d2;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-  }
-  
-  .completed-badge {
-    color: #2ecc71;
-    font-weight: 600;
-    font-size: 0.9rem;
-  }
-  
-  .card-body {
-    padding: 1.5rem;
-  }
-  
-  .card-body h3 {
-    color: #2c3e50;
-    margin-bottom: 0.75rem;
-    font-size: 1.2rem;
-  }
-  
-  .card-body p {
-    color: #7f8c8d;
-    margin-bottom: 1.5rem;
-    line-height: 1.5;
-  }
-  
-  .card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
-    border-top: 1px solid #eee;
-  }
-  
-  .deadline {
-    color: #e74c3c;
-    font-size: 0.85rem;
-    font-weight: 500;
-  }
-  
-  .action-btn {
-    background: #6e8efb;
-    color: white;
-    border: none;
-    padding: 0.5rem 1.25rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.3s;
-  }
-  
-  .action-btn:hover:not(:disabled) {
-    background: #5a7df4;
-  }
-  
-  .action-btn.completed {
-    background: #ecf0f1;
-    color: #95a5a6;
-    cursor: not-allowed;
-  }
+}
+
+/* Estilos para las opciones de radio/checkbox */
+.options-group {
+  margin-top: 1rem;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.option-item:hover {
+  background-color: #f5f5f5;
+}
+
+.option-item input[type="radio"],
+.option-item input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #4f46e5;
+  border-radius: 50%;
+  margin-right: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.option-item input[type="checkbox"] {
+  border-radius: 4px;
+}
+
+.option-item input[type="radio"]:checked::before,
+.option-item input[type="checkbox"]:checked::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.option-item input[type="radio"]:checked::before {
+  width: 10px;
+  height: 10px;
+  background-color: #4f46e5;
+  border-radius: 50%;
+}
+
+.option-item input[type="checkbox"]:checked::before {
+  width: 10px;
+  height: 10px;
+  background-color: #4f46e5;
+}
+
+.option-item label {
+  cursor: pointer;
+  flex-grow: 1;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+/* Estilo especial para preguntas Sí/No */
+.yes-no-options {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.yes-no-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.yes-no-option.selected {
+  border-color: #4f46e5;
+  background-color: #f0f5ff;
+}
+
+.yes-no-option input {
+  display: none;
+}
+
+.yes-no-option label {
+  cursor: pointer;
+  font-weight: 500;
+  color: #4f46e5;
+}
