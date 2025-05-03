@@ -2,44 +2,42 @@
 📌 Proyecto ENCUESTAS360
 ENCUESTAS360 es una plataforma diseñada para facilitar la recolección y análisis de feedback de clientes mediante encuestas interactivas. Está dirigida a empresas que necesitan medir satisfacción, preferencias o realizar estudios de mercado.
 
+🌐 Aplicación Web (PMV - Producto Mínimo Viable)
+
+Este repositorio contiene la primera versión funcional de la plataforma, desarrollada con React y Firebase. El PMV incluye:
+
+ - Autenticación de usuarios (registro/inicio de sesión)
+
+ - Rutas protegidas según tipo de usuario (administrador/cliente)
+
+ - Base de datos en tiempo real para gestionar encuestas
+
+ - Interacción completa entre administradores (creación de encuestas) y clientes (visualizacion) (responderlas esta en desarrollo)
+
+ - Despliegue automático con Vercel
+
+Ahora es un producto funcional con backend integrado, listo para pruebas reales y feedback.
+
 🔹 Características clave
 Para administradores:
 
- - Creación y gestión de encuestas.
+ - Creación de encuestas.
 
- - Visualización de resultados con gráficos.
+ - Visualización de resultados con gráficos.(en desarrollo)
 
- - CRUD de clientes y encuestas.
 
 Para clientes:
 
- - Responder encuestas de manera intuitiva.
+ - Revisar las encuestas disponibles
 
- - Historial de respuestas.
-
-🎯 Objetivo
-Automatizar el proceso de recolección de datos y transformarlos en insights accionables, mejorando la toma de decisiones empresariales.
-
-🌐 Aplicación Web (PMN - Prototipo Mínimo Navegable)
-Este repositorio contiene el prototipo de la plataforma, desarrollado con React. Es una versión inicial que simula la navegación y estructura básica, sin lógica compleja.
 
 ✨ Funcionalidades implementadas
-1.- Autenticación simulada:
 
-    - Login único con toggle para administradores y clientes.
-
-    - Redirección a rutas según rol.
-
-2.- Pantallas principales:
-
-     - Dashboard de administrador: Vista preliminar con tarjetas de encuestas.
-
-     - Login responsive: Diseño moderno con validación de campos.
-
-3.- Navegación:
-
-    - Rutas configuradas con react-router-dom.
+Esta aplicación ahora cuenta con un backend implementado en Firebase, ofreciendo autenticación segura para usuarios, rutas protegidas según roles y una base de datos en tiempo real. Los administradores pueden crear y gestionar(gestion en desarrollo) encuestas, mientras que los clientes pueden responderlas (caracteristica de responder encuestas en desarrollo), estableciendo una conexión fluida entre ambos roles. Firebase garantiza escalabilidad, seguridad y sincronización inmediata de datos para una experiencia óptima.
 
 
-NOTA:
-    Al no haber validación, el correo (respetando formato) y contraseña puede ser cualquiera cosa cuando se solicite.
+NOTA: Se puede crear usuario en registrar pero sera un usuario con rol "usuario", si desea entrar al apartado de admin aqui hay una cuenta precreada:
+    Correo: admin@example.com
+    Contraseña: admin123
+
+Con eso podra entrar al apartado de administrador.
