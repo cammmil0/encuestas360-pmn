@@ -24,7 +24,7 @@ function Login() {
       
       // Redirigir según el rol (puedes almacenar el rol en Firestore)
       if (isAdmin) {
-        navigate('/admin/dashboard');
+        navigate('/admin/surveys');
       } else {
         navigate('/user/encuestas');
       }

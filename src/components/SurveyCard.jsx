@@ -6,7 +6,7 @@ function SurveyCard({ survey, onStart }) {
       <div className="card-header">
         <span className="survey-category">{survey.category || 'General'}</span>
         <span className="survey-status">
-          {survey.completed ? 'Completada' : 'Disponible'}
+          {survey.completed ? 'Completada ✓' : 'Disponible'}
         </span>
       </div>
       

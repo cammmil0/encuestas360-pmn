@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { collection, getDocs, doc, deleteDoc,query,where } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  doc,
+  deleteDoc,
+  query,
+  where,
+  onSnapshot,
+} from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 import { db } from "../firebase/config";
 import styles from "../assets/AdminSurveys.module.css";
 
@@ -10,53 +19,80 @@ const AdminSurveys = () => {
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+  const auth = getAuth();
 
-  // Cargar encuestas desde Firestore
   useEffect(() => {
     const fetchSurveys = async () => {
       try {
         setLoading(true);
-        // Consulta con filtro para status active
-        const q = query(
-          collection(db, "surveys"),
-          where("status", "==", "active")
-        );
-        const querySnapshot = await getDocs(q);
 
-        const surveysData = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-          // Asegura que existan estos campos
-          title: doc.data().title || "Sin título",
-          status: doc.data().status || "draft",
-        }));
+        // Verificar rol de admin
+        const user = auth.currentUser;
+        if (!user) {
+          setError("Usuario no autenticado");
+          setLoading(false);
+          return;
+        }
 
-        setSurveys(surveysData);
+        const token = await user.getIdTokenResult();
+        if (!token.claims.role || token.claims.role !== "admin") {
+          setError(
+            "Acceso denegado: Se requieren privilegios de administrador"
+          );
+          setLoading(false);
+          return;
+        }
+
+        // Consulta para admin (todas las encuestas)
+        const q = query(collection(db, "surveys"));
+
+        // Usar onSnapshot para actualización en tiempo real
+        const unsubscribe = onSnapshot(q, async (querySnapshot) => {
+          const surveysData = await Promise.all(
+            querySnapshot.docs.map(async (docSnap) => {
+              const responsesQuery = query(
+                collection(db, "responses"),
+                where("surveyId", "==", docSnap.id)
+              );
+              const responsesSnapshot = await getDocs(responsesQuery);
+
+              return {
+                id: docSnap.id,
+                ...docSnap.data(),
+                title: docSnap.data().title || "Sin título",
+                status: docSnap.data().status || "draft",
+                responses: responsesSnapshot.size,
+              };
+            })
+          );
+
+          setSurveys(surveysData);
+          setLoading(false);
+        });
+
+        return () => unsubscribe();
       } catch (err) {
-        setError(`Error al cargar: ${err.message}`);
-        console.error("Error detallado:", err);
-      } finally {
+        console.error("Error al cargar encuestas:", err);
+        setError(`Error al cargar encuestas: ${err.message}`);
         setLoading(false);
       }
     };
 
     fetchSurveys();
-  }, []);
+  }, [auth.currentUser]);
 
-  // Eliminar encuesta de Firestore
   const handleDelete = async (id) => {
-    if (window.confirm("¿Estás seguro de eliminar esta encuesta?")) {
-      try {
-        await deleteDoc(doc(db, "surveys", id));
-        setSurveys((prev) => prev.filter((survey) => survey.id !== id));
-      } catch (err) {
-        setError("Error al eliminar la encuesta");
-        console.error("Error deleting survey:", err);
-      }
+    if (!window.confirm("¿Estás seguro de eliminar esta encuesta?")) return;
+
+    try {
+      await deleteDoc(doc(db, "surveys", id));
+      // No necesitamos actualizar el estado, onSnapshot lo manejará
+    } catch (err) {
+      console.error("Error al eliminar encuesta:", err);
+      setError(`Error al eliminar encuesta: ${err.message}`);
     }
   };
 
-  // Filtrar encuestas según término de búsqueda
   const filteredSurveys = surveys.filter(
     (survey) =>
       survey.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -64,7 +100,6 @@ const AdminSurveys = () => {
         survey.description.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
-  // Determinar estado de la encuesta con estilos
   const getSurveyStatus = (survey) => {
     const status = survey.status || "active";
     return (

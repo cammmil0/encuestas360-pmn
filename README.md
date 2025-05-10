@@ -12,7 +12,7 @@ Este repositorio contiene la primera versión funcional de la plataforma, desarr
 
  - Base de datos en tiempo real para gestionar encuestas
 
- - Interacción completa entre administradores (creación de encuestas) y clientes (visualizacion) (responderlas esta en desarrollo)
+ - Interacción completa entre administradores (creación de encuestas) y clientes (visualizacion)
 
  - Despliegue automático con Vercel
 
@@ -23,7 +23,7 @@ Para administradores:
 
  - Creación de encuestas.
 
- - Visualización de resultados con gráficos.(en desarrollo)
+ - Visualización de resultados con gráficos.
 
 
 Para clientes:
@@ -33,7 +33,7 @@ Para clientes:
 
 ✨ Funcionalidades implementadas
 
-Esta aplicación ahora cuenta con un backend implementado en Firebase, ofreciendo autenticación segura para usuarios, rutas protegidas según roles y una base de datos en tiempo real. Los administradores pueden crear y gestionar(gestion en desarrollo) encuestas, mientras que los clientes pueden responderlas (caracteristica de responder encuestas en desarrollo), estableciendo una conexión fluida entre ambos roles. Firebase garantiza escalabilidad, seguridad y sincronización inmediata de datos para una experiencia óptima.
+Esta aplicación ahora cuenta con un backend implementado en Firebase, ofreciendo autenticación segura para usuarios, rutas protegidas según roles y una base de datos en tiempo real. Los administradores pueden crear y gestionar encuestas, mientras que los clientes pueden responderlas , estableciendo una conexión fluida entre ambos roles. Firebase garantiza escalabilidad, seguridad y sincronización inmediata de datos para una experiencia óptima.
 
 
 NOTA: Se puede crear usuario en registrar pero sera un usuario con rol "usuario", si desea entrar al apartado de admin aqui hay una cuenta precreada:

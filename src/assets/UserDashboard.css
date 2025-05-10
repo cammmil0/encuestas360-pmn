@@ -121,3 +121,30 @@
       transform: scale(1);
   }
 }
+
+
+.survey-card.completed {
+  opacity: 0.8;
+  background-color: #f0f0f0;
+}
+
+.completed-badge {
+  color: green;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: #e8f5e9;
+}
+
+.survey-card button {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.survey-card.completed button {
+  display: none;
+}

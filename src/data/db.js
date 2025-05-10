@@ -4,7 +4,7 @@ const initialData = {
       {
         id: 1,
         name: "Admin",
-        email: "admin@example.com",
+        email: "adminnn@example.com",
         password: "admin123", // En producción NUNCA almacenes contraseñas en texto plano
         role: "admin"
       },

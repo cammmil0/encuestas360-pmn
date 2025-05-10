@@ -52,8 +52,8 @@
 }
 
 .survey-card.completed .survey-status {
-  background: #EEEEEE;
-  color: #616161;
+  background: #fdc8c8;
+  color: #ff0000;
 }
 
 /* Body */
@@ -214,4 +214,20 @@
   cursor: pointer;
   font-weight: 500;
   color: #4f46e5;
+}
+
+.survey-card.completed {
+  opacity: 0.8;
+  background-color: #f0f0f0;
+  border-left: 4px solid #4CAF50;
+}
+
+.completed-badge {
+  color: #4CAF50;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.survey-card.completed button {
+  display: none;
 }

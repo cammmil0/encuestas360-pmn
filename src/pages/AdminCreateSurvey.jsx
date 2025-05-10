@@ -71,7 +71,7 @@ const AdminCreateSurvey = () => {
             // Guardar en Firestore
             const docRef = await addDoc(collection(db, 'surveys'), surveyToSave);
             
-            alert(`Encuesta publicada con éxito! ID: ${docRef.id}`);
+            alert(`Encuesta publicada con éxito!`);
             navigate('/admin/surveys');
         } catch (error) {
             console.error('Error al guardar la encuesta:', error);

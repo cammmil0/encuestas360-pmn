@@ -40,7 +40,7 @@ function Register() {
       await setDoc(doc(db, 'users', userCredential.user.uid), {
         name: formData.name,
         email: formData.email,
-        role: 'user', // Rol por defecto
+        role: 'admin', // Rol por defecto
         createdAt: new Date().toISOString()
       });
 
